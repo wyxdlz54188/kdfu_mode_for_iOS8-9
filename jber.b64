@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>404 - 页面未找到</title>
+<style>
+    body {
+        background-color: #f7f9fc;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 100vh;
+        margin: 0;
+        color: #333;
+    }
+    h1 {
+        font-size: 8rem;
+        margin: 0;
+        color: #ff6b6b;
+    }
+    h2 {
+        font-size: 1.5rem;
+        margin: 10px 0 20px;
+        font-weight: normal;
+    }
+    button {
+        padding: 10px 20px;
+        font-size: 1rem;
+        background-color: #4dabf7;
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    button:hover {
+        background-color: #339af0;
+    }
+</style>
+</head>
+<body>
+    <h1>404</h1>
+    <h2>抱歉，您访问的页面不存在</h2>
+    <button onclick="history.back()">返回上一页</button>
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <title>kDFU Mode</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <script src="wkloader.js"></script>
+    <style>
+        body {
+            font-family: -apple-system, "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", sans-serif;
+            background-color: #efeff4;
+            color: #333;
+            margin: 0;
+            padding: 15px;
+            line-height: 1.4;
+        }
+        .card {
+            background-color: #ffffff;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            padding: 24px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            border: 1px solid #d1d1d6;
+        }
+        .header-card {
+            text-align: center;
+            background: linear-gradient(135deg, #ffffff 0%, #f9f9f9 100%);
+        }
+
+        h1 {
+            font-size: 32px;
+            font-weight: 300;
+            margin: 10px 0 5px;
+            color: #000;
+        }
+
+        .subtitle {
+            font-size: 14px;
+            color: #8e8e93;
+            margin-bottom: 5px;
+        }
+
+        .author {
+            font-size: 13px;
+            color: #aeaeb2;
+            margin-bottom: 15px;
+        }
+
+        .version-badge {
+            display: inline-block;
+            background-color: #f2f2f7;
+            color: #555;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .button-wrapper {
+            padding: 10px 0;
+        }
+
+        .button {
+            background-color: #5856d6;
+            border: none;
+            color: white;
+            padding: 16px 0;
+            width: 100%;
+            text-align: center;
+            font-size: 18px;
+            font-weight: 500;
+            border-radius: 12px;
+            cursor: pointer;
+            -webkit-tap-highlight-color: rgba(0,0,0,0);
+        }
+
+        .button:active {
+            background-color: #4342ad;
+        }
+
+        .button:disabled {
+            background-color: #aeaeb2;
+        }
+
+        .downgrade-link {
+            display: block;
+            margin-top: 15px;
+            color: #007AFF;
+            text-decoration: none;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="card header-card">
+        <h1>kDFU Mode</h1>
+        <div class="subtitle">基于 Carbon 修改而来</div>
+        <div class="version-badge">支持 iOS 8.0 - 9.3.6 (32位设备)</div>
+        <div class="author" style="margin-top: 10px;">作者：鸡精人</div>
+    </div>
+
+    <div class="card" style="text-align: center;">
+        <div class="button-wrapper">
+            <button class="button" id="runBtn" onclick="startKdfu()">进入 kDFU 模式</button>
+        </div>
+        
+        <a href="https://www.jjr.one/downgrade" class="downgrade-link">
+            修改版本号降级 iOS8.4.1
+        </a>
+    </div>
+
+    <script>
+        function startKdfu() {
+            var btn = document.getElementById('runBtn');
+            
+            btn.innerText = '正在引导至 kDFU';
+            btn.disabled = true;
+            
+            setTimeout(function() {
+                if (typeof run === 'function') {
+                    run();
+                } else {
+                    console.log("未找到 run() 函数");
+                    btn.innerText = '引导脚本未就绪';
+                }
+            }, 100);
+        }
+    </script>
+</body>
+
+</html>
